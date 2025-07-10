@@ -3,7 +3,7 @@
 A new Flutter project.
 
 This is my frontend app for a crud application using Flutter and NestJS.
-The other part of the project (backend) is available at:
+The other part of the project (backend) is available at: https://github.com/omarigg04/nestjs-crud
 
 
 
