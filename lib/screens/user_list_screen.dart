@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../models/user.dart';
 import '../services/user_service.dart';
+import 'create_user.dart'; // Importar la nueva pantalla
 
 class UserListScreen extends StatefulWidget {
   const UserListScreen({super.key});
@@ -23,6 +24,20 @@ class _UserListScreenState extends State<UserListScreen> {
     setState(() {
       futureUsers = userService.fetchUsers();
     });
+  }
+
+// Aqui se navega a la pantalla de creación de usuario
+  // y se espera el resultado (true si se creó un usuario)
+  Future<void> _navigateToCreateUser() async {
+    final result = await Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const CreateUserScreen()),
+    );
+
+    // Si se creó un usuario (result == true), actualizar la lista
+    if (result == true) {
+      _refreshUsers();
+    }
   }
 
   @override
@@ -158,12 +173,7 @@ class _UserListScreenState extends State<UserListScreen> {
         },
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          // TODO: Navegar a pantalla de crear usuarior
-          ScaffoldMessenger.of(
-            context,
-          ).showSnackBar(const SnackBar(content: Text('Crear nuevo usuario')));
-        },
+        onPressed: _navigateToCreateUser,
         child: const Icon(Icons.add),
       ),
     );

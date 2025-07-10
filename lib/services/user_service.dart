@@ -28,7 +28,7 @@ class UserService {
   // Recibe el nombre, edad y usuario del nuevo usuario
   Future<User> createUser(User user) async {
     final response = await http.post(
-      Uri.parse('$baseUrl/users'), // Cambia por tu URL real
+      Uri.parse('$baseUrl/usuarios'), // Cambia por tu URL real
       headers: {'Content-Type': 'application/json'},
       body: json.encode(user.toJson()),
     );
