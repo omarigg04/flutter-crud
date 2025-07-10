@@ -3,14 +3,14 @@
 A new Flutter project.
 
 This is my frontend app for a crud application using Flutter and NestJS.
-The other part of the project (backend) is available at:
+The other part of the project (backend) is available at: https://github.com/omarigg04/nestjs-crud
 
 
 
 
 # Getting Started
 For help getting started with Flutter, view the online documentation:
-https://flutter.dev/docs/get-started/flutter-for/developers
+[https://flutter.dev/docs/get-started/flutter-for/developers](https://docs.flutter.dev/get-started/install)
 
 For instructions integrating Flutter into your existing applications, see the documentation:
 https://flutter.dev/docs/development/add-to-app
