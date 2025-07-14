@@ -3,7 +3,13 @@ import 'package:http/http.dart' as http;
 import '../models/user.dart';
 
 class UserService {
-  final String baseUrl = 'http://192.168.1.117:3000'; // Para emulador Android
+  // final String baseUrl = 'http://192.168.1.117:3000'; // Para emulador Android
+  // final String baseUrl = 'http://localhost:3000'; // Para emulador iOS o navegador
+
+  //para usar en mi deploy de backend en render:
+  final String baseUrl = 'https://nestjs-crud-7t8x.onrender.com'; // Cambia por tu URL real
+
+
   // Si usas celular físico, cambia a: 'http://192.168.X.X:3000'
 
   // Metodo para obtener la lista de usuarios
