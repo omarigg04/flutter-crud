@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../models/user.dart';
 import '../services/user_service.dart';
 import 'create_user.dart'; // Importar la nueva pantalla
+import 'edit_user.dart';
 
 class UserListScreen extends StatefulWidget {
   const UserListScreen({super.key});
@@ -30,6 +31,17 @@ class _UserListScreenState extends State<UserListScreen> {
     final result = await Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => const CreateUserScreen()),
+    );
+
+    if (result == true) {
+      _refreshUsers();
+    }
+  }
+
+  Future<void> _navigateToEditUser(User user) async {
+    final result = await Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => EditUserScreen(user: user)),
     );
 
     if (result == true) {
@@ -115,11 +127,7 @@ class _UserListScreenState extends State<UserListScreen> {
                                   color: Colors.blue,
                                 ),
                                 onPressed: () {
-                                  ScaffoldMessenger.of(context).showSnackBar(
-                                    SnackBar(
-                                      content: Text('Editar ${user.nombre}'),
-                                    ),
-                                  );
+                                  _navigateToEditUser(user);
                                 },
                               ),
                               IconButton(
